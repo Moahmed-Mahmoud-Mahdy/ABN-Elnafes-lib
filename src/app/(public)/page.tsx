@@ -77,59 +77,46 @@ export default async function HomePage() {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero Section - Centered */}
       <section className="relative overflow-hidden bg-gradient-to-br from-secondary via-background to-secondary pattern-bg">
         <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6 text-center md:text-right">
-              <Badge className="bg-accent text-accent-foreground hover:bg-accent text-sm py-1.5 px-4">
-                كاتالوج منتجات مكتبة ابن النفيس
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground text-balance" style={{ fontFamily: "var(--font-amiri), serif" }}>
-                {settings.heroTitle}
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto md:mx-0">
-                {settings.heroSubtitle}
-              </p>
-              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <Button asChild size="lg" className="text-base h-12 px-8">
-                  <Link href="/products">
-                    تصفح المنتجات
-                    <ArrowLeft className="h-5 w-5 mr-2" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="text-base h-12 px-8">
-                  <Link href="/offers">العروض الحالية</Link>
-                </Button>
-              </div>
-              <div className="flex flex-wrap gap-6 pt-4 justify-center md:justify-start text-sm">
-                <div>
-                  <p className="text-2xl font-bold text-primary">{categories.length}</p>
-                  <p className="text-muted-foreground">قسم متنوع</p>
-                </div>
-                <div className="border-r border-border pr-6">
-                  <p className="text-2xl font-bold text-primary">+{latestProducts.length * 4}</p>
-                  <p className="text-muted-foreground">منتج متوفر</p>
-                </div>
-                <div className="border-r border-border pr-6">
-                  <p className="text-2xl font-bold text-primary">{offers.length}</p>
-                  <p className="text-muted-foreground">عرض حالي</p>
-                </div>
-              </div>
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <Badge className="bg-accent text-accent-foreground hover:bg-accent text-sm py-1.5 px-4">
+              كاتالوج منتجات مكتبة ابن النفيس
+            </Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground text-balance" style={{ fontFamily: "var(--font-amiri), serif" }}>
+              {settings.heroTitle}
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              {settings.heroSubtitle}
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center pt-2">
+              <Button asChild size="lg" className="text-base h-12 px-8">
+                <Link href="/products">
+                  تصفح المنتجات
+                  <ArrowLeft className="h-5 w-5 mr-2" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="text-base h-12 px-8">
+                <Link href="/offers">العروض الحالية</Link>
+              </Button>
             </div>
 
-            {/* Hero image */}
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/30 rounded-full blur-3xl" />
-              <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-card">
-                <Image
-                  src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=900"
-                  alt="مكتبة ابن النفيس"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
+            {/* Stats - centered */}
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 pt-8">
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-bold text-primary">{categories.length}</p>
+                <p className="text-sm text-muted-foreground mt-1">قسم متنوع</p>
+              </div>
+              <div className="h-12 w-px bg-border" />
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-bold text-primary">+{latestProducts.length * 4}</p>
+                <p className="text-sm text-muted-foreground mt-1">منتج متوفر</p>
+              </div>
+              <div className="h-12 w-px bg-border" />
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-bold text-primary">{offers.length}</p>
+                <p className="text-sm text-muted-foreground mt-1">عرض حالي</p>
               </div>
             </div>
           </div>
