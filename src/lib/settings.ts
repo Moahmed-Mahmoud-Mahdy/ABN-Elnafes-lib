@@ -29,7 +29,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   phone: "01286183415",
   whatsapp: "+201286183415",
   email: "info@ibnalnafis.com",
-  address: "شارع الجمهورية، وسط البلد، القاهرة، مصر",
+  address: "شارع ابن النفيس، شارع جمال  بقرب محطه الهايكستب ، القاهرة، مصر",
   googleMapsUrl: "https://maps.google.com/?q=Cairo,Egypt",
   facebook: "https://facebook.com/",
   instagram: "https://instagram.com/",

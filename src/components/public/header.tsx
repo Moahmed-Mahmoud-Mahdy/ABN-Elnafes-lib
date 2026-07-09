@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, Search, BookOpen, Phone } from "lucide-react";
@@ -75,8 +76,8 @@ export default function PublicHeader({
         <div className="flex h-20 items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
-            <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-md">
-              <BookOpen className="h-6 w-6" />
+            <div className="h-12 w-12 rounded-full overflow-hidden bg-white flex items-center justify-center shadow-md">
+              <Image src="/logo.png" alt="Logo" width={48} height={48} className="object-contain" />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold leading-tight text-primary" style={{ fontFamily: "var(--font-amiri), serif" }}>

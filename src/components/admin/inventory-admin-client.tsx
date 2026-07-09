@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -56,6 +56,7 @@ export default function InventoryAdminClient({
   userName: string;
 }) {
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [modal, setModal] = useState<{ type: "ADD" | "REMOVE"; product: Product } | null>(null);
@@ -63,6 +64,10 @@ export default function InventoryAdminClient({
   const [reason, setReason] = useState("");
   const [notes, setNotes] = useState("");
   const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
@@ -123,6 +128,14 @@ export default function InventoryAdminClient({
     outOfStock: products.filter((p) => p.stock <= 0).length,
     totalStock: products.reduce((sum, p) => sum + p.stock, 0),
   };
+
+  if (!mounted) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

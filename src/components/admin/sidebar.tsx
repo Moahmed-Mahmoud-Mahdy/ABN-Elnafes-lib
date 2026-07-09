@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 import {
@@ -68,8 +69,8 @@ export default function AdminSidebar() {
         <div className="p-5 border-b">
           <div className="flex items-center justify-between">
             <Link href="/admin" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-              <div className="h-11 w-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
-                <BookOpen className="h-5 w-5" />
+              <div className="h-11 w-11 rounded-full overflow-hidden bg-white flex items-center justify-center shadow-md">
+                <Image src="/logo.png" alt="Logo" width={44} height={44} className="object-contain" />
               </div>
               <div>
                 <h1 className="font-bold text-base leading-tight" style={{ fontFamily: "var(--font-amiri), serif" }}>
