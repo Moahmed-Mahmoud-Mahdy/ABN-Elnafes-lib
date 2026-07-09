@@ -129,12 +129,13 @@ export default async function ContactPage() {
             <CardContent>
               <div className="aspect-video rounded-lg overflow-hidden border">
                 <iframe
-                  src={settings.googleMapsUrl.replace("/?", "/?output=embed&").replace("maps.google.com", "www.google.com/maps")}
+                  src={settings.googleMapsUrl}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
+                  allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   title="موقع المكتبة"
                 />
               </div>
