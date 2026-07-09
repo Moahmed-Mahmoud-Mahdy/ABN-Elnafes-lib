@@ -77,46 +77,61 @@ export default async function HomePage() {
 
   return (
     <div>
-      {/* Hero Section - Centered */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-secondary via-background to-secondary pattern-bg">
-        <div className="container mx-auto px-4 py-16 md:py-24">
+      {/* Hero Section - Centered with background image */}
+      <section className="relative overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1920&q=80"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/75 to-primary/85" />
+        </div>
+
+        {/* Content */}
+        <div className="relative container mx-auto px-4 py-20 md:py-32">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <Badge className="bg-accent text-accent-foreground hover:bg-accent text-sm py-1.5 px-4">
               كاتالوج منتجات مكتبة ابن النفيس
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground text-balance" style={{ fontFamily: "var(--font-amiri), serif" }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white text-balance" style={{ fontFamily: "var(--font-amiri), serif" }}>
               {settings.heroTitle}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
               {settings.heroSubtitle}
             </p>
             <div className="flex flex-wrap gap-3 justify-center pt-2">
-              <Button asChild size="lg" className="text-base h-12 px-8">
+              <Button asChild size="lg" className="text-base h-12 px-8 bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="/products">
                   تصفح المنتجات
                   <ArrowLeft className="h-5 w-5 mr-2" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-base h-12 px-8">
+              <Button asChild variant="outline" size="lg" className="text-base h-12 px-8 bg-white/10 backdrop-blur text-white border-white/30 hover:bg-white/20 hover:text-white">
                 <Link href="/offers">العروض الحالية</Link>
               </Button>
             </div>
 
             {/* Stats - centered */}
-            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 pt-8">
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 pt-10">
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-primary">{categories.length}</p>
-                <p className="text-sm text-muted-foreground mt-1">قسم متنوع</p>
+                <p className="text-3xl md:text-4xl font-bold text-accent">{categories.length}</p>
+                <p className="text-sm text-white/80 mt-1">قسم متنوع</p>
               </div>
-              <div className="h-12 w-px bg-border" />
+              <div className="h-12 w-px bg-white/30" />
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-primary">+{latestProducts.length * 4}</p>
-                <p className="text-sm text-muted-foreground mt-1">منتج متوفر</p>
+                <p className="text-3xl md:text-4xl font-bold text-accent">+{latestProducts.length * 4}</p>
+                <p className="text-sm text-white/80 mt-1">منتج متوفر</p>
               </div>
-              <div className="h-12 w-px bg-border" />
+              <div className="h-12 w-px bg-white/30" />
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-primary">{offers.length}</p>
-                <p className="text-sm text-muted-foreground mt-1">عرض حالي</p>
+                <p className="text-3xl md:text-4xl font-bold text-accent">{offers.length}</p>
+                <p className="text-sm text-white/80 mt-1">عرض حالي</p>
               </div>
             </div>
           </div>
