@@ -26,8 +26,8 @@ export type SiteSettings = {
 
 export const DEFAULT_SETTINGS: SiteSettings = {
   libraryName: "مكتبة ابن النفيس",
-  phone: "+20 100 123 4567",
-  whatsapp: "+201001234567",
+  phone: "01286183415",
+  whatsapp: "+201286183415",
   email: "info@ibnalnafis.com",
   address: "شارع الجمهورية، وسط البلد، القاهرة، مصر",
   googleMapsUrl: "https://maps.google.com/?q=Cairo,Egypt",
