@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     "مكتبة",
     "القاهرة",
   ],
+  verification: {
+    google: "wesoflePF3p-OTX7vvDZZrWgxGpjeWVzSmm2xOxd8fw",
+  },
 };
 
 export default function RootLayout({
