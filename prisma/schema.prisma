@@ -1,0 +1,98 @@
+// Prisma schema for Ibn Al-Nafis Library Catalog + Inventory System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  icon        String?
+  image       String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  products    Product[]
+}
+
+model Product {
+  id            String          @id @default(cuid())
+  name          String
+  slug          String          @unique
+  description   String?
+  price         Float?
+  categoryId    String
+  category      Category        @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  stock         Int             @default(0)
+  minStock      Int             @default(5)
+  featured      Boolean         @default(false)
+  showInOffers  Boolean         @default(false)
+  active        Boolean         @default(true)
+  images        ProductImage[]
+  stockMovements StockMovement[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  @@index([categoryId])
+  @@index([featured])
+  @@index([showInOffers])
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  position  Int     @default(0)
+
+  @@index([productId])
+}
+
+model Offer {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  image       String?
+  discount    String?
+  startDate   DateTime
+  endDate     DateTime
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model StockMovement {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  type      String   // "ADD" | "REMOVE"
+  quantity  Int
+  reason    String
+  userName  String
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+  @@index([createdAt])
+}
+
+model SiteSetting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
