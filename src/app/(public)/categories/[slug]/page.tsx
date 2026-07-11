@@ -4,6 +4,8 @@ import { db } from "@/lib/db";
 import ProductCard from "@/components/public/product-card";
 import { ChevronLeft } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function CategoryPage({
   params,
 }: {

@@ -12,6 +12,8 @@ import ProductCard from "@/components/public/product-card";
 import ProductGallery from "@/components/public/product-gallery";
 import { Phone, MessageCircle, ChevronLeft, Package } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductDetailPage({
   params,
 }: {

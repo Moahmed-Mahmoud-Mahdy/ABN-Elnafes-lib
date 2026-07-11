@@ -3,6 +3,8 @@ import { getSettings } from "@/lib/settings";
 import { db } from "@/lib/db";
 import { BookOpen, Target, Eye, Award, Heart, TrendingUp, ShieldCheck, Sparkles, HeartHandshake } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function AboutPage() {
   const [settings, stats] = await Promise.all([
     getSettings(),

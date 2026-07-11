@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Tag, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+export const dynamic = "force-dynamic";
+
 export default async function OffersPage() {
   const [activeOffers, upcomingOffers, settings] = await Promise.all([
     db.offer.findMany({

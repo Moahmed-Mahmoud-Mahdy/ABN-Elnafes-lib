@@ -10,6 +10,8 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Palette, Backpack, Puzzle, Gift,
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function CategoriesPage() {
   const categories = await db.category.findMany({
     include: { _count: { select: { products: { where: { active: true } } } } },

@@ -3,6 +3,8 @@ import { db } from "@/lib/db";
 import ProductsClient from "@/components/public/products-client";
 import { Skeleton } from "@/components/ui/skeleton";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductsPage() {
   const categories = await db.category.findMany({
     orderBy: { name: "asc" },

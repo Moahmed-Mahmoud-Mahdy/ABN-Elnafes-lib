@@ -38,6 +38,8 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Gift,
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const [featuredProducts, latestProducts, categories, offers, settings] = await Promise.all([
     db.product.findMany({

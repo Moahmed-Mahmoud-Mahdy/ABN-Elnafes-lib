@@ -3,6 +3,8 @@ import { Phone, MessageCircle, Mail, MapPin, Clock, Facebook, Instagram } from "
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ContactForm from "@/components/public/contact-form";
 
+export const dynamic = "force-dynamic";
+
 export default async function ContactPage() {
   const settings = await getSettings();
   const whatsappUrl = `https://wa.me/${settings.whatsapp.replace(/[^0-9]/g, "")}`;
